@@ -1,9 +1,8 @@
 from abc import ABC, abstractmethod
 from pathlib import Path
-from typing import Any, Optional
 
 
-class Solver:
+class Solver(ABC):
     _STRIP: bool = True
 
     def __init__(self) -> None:
@@ -13,7 +12,7 @@ class Solver:
         cls._STRIP = strip
 
     @abstractmethod
-    def _process_line(self, line: str) -> Optional[int]:
+    def _process_line(self, line: str) -> int | None:
         pass
 
     def postprocess(self) -> None:

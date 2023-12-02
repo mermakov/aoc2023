@@ -5,7 +5,9 @@ from aoc2023.utils import Solver
 
 _COLOR_LIMITS = {"red": 12, "green": 13, "blue": 14}
 
-_COUNT_PTN = re.compile(rf"(?P<count>\d+) (?P<color>{'|'.join(_COLOR_LIMITS)})")
+_COUNT_PTN = re.compile(
+    rf"(?P<count>\d+) (?P<color>{'|'.join(_COLOR_LIMITS)})"
+)
 
 
 class PartOne(Solver):

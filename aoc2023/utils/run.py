@@ -20,14 +20,15 @@ def main():
     solver_name = f"Part{'One' if opts.part == 1 else 'Two'}"
 
     try:
-        module = importlib.import_module(f"aoc2023.{opts.day}")
+        module = importlib.import_module(f"aoc2023.d{opts.day}")
         solver = getattr(module, solver_name)
     except ModuleNotFoundError:
         print(f"No day '{opts.day}' found!", file=sys.stderr)
         return 1
     except AttributeError:
         print(
-            f"Day '{opts.day}' does not define '{solver_name}'", file=sys.stderr
+            f"Day '{opts.day}' does not define '{solver_name}'",
+            file=sys.stderr,
         )
         return 1
 

@@ -11,9 +11,11 @@ python = "^3.10"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.11.0"
+mypy = "^1.7.1"
+flake8 = "^6.1.0"
 
 [tool.black]
-line-length = 80
+line-length = 79
 
 [tool.poetry.scripts]
 solve = "aoc2023.utils.run:main"
