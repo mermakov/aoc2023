@@ -12,7 +12,7 @@ class Solver(ABC):
         cls._STRIP = strip
 
     @abstractmethod
-    def _process_line(self, line: str) -> int | None:
+    def _process_line(self, line: str, index: int) -> int | None:
         pass
 
     def postprocess(self) -> None:
@@ -20,9 +20,9 @@ class Solver(ABC):
 
     def __call__(self, path: Path) -> int:
         with path.open() as f:
-            for line in f.readlines():
+            for i, line in enumerate(f.readlines()):
                 value = self._process_line(
-                    line.strip() if self._STRIP else line
+                    line.strip() if self._STRIP else line, i
                 )
                 if value is not None:
                     self._accumulator += value

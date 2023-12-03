@@ -28,7 +28,7 @@ class PartOne(Solver):
 
         return game_id, dice_counts
 
-    def _process_line(self, line: str) -> int | None:
+    def _process_line(self, line: str, index: int) -> int | None:
         game_id, dice_counts = self._get_dice_counts(line)
         for color, counts in dice_counts.items():
             if any(count > _COLOR_LIMITS[color] for count in counts):
@@ -38,7 +38,7 @@ class PartOne(Solver):
 
 
 class PartTwo(PartOne):
-    def _process_line(self, line: str) -> int | None:
+    def _process_line(self, line: str, index: int) -> int | None:
         _, dice_counts = self._get_dice_counts(line)
         power = 1
         for color in _COLOR_LIMITS:
